@@ -11,7 +11,7 @@
 </head>
 <body>
 	<header>
-		<div class="layout-wrap">
+		<div class="layout-wrap cf">
 			<a href="#"><img src="img/logo-netcraft.svg" alt="netcraft"></a>
 
 			<form class="search-box">
@@ -19,88 +19,206 @@
 			</form>
 		</div>
 	</header>
+	<div class="container cf">
+		<section class="page-body layout-wrap cf">
+			<div class="notifications">The data UTF BI would be updated at 16:00 pm.</div>
 
-	<section class="page-body layout-wrap">
-		<div class="notifications"></div>
+			<nav class="cf">
+				<div class="nav-section" id="nav-section-1">
+					<p>Select <br>Reporting Platform</p>
 
-		<nav>
-			<div class="nav-section">
-				<p>Select Reporting Platform</p>
+					<div class="menu">
+						<div class="menu-caption">
+							<p>Choose QS report</p>
+							<span class="arrow"> </span>
+						</div>
 
-				<div class="menu">
-					<div class="menu-caption">
-						<p>Choose QS report</p>
+						<ul class="action-list">
+							<li><a href="#">link</a></li>
+							<li><a href="#">link</a></li>
+							<li><a href="#">link</a></li>
+							<li><a href="#">link</a></li>
+							<li><a href="#">link</a></li>
+						</ul>
 					</div>
-
-					<ul class="action-list">
-						<li><a href="#">link</a></li>
-						<li><a href="#">link</a></li>
-						<li><a href="#">link</a></li>
-						<li><a href="#">link</a></li>
-						<li><a href="#">link</a></li>
-					</ul>
 				</div>
-			</div>
 
-			<div class="nav-section">
-				<p>Select Dashboard</p>
+				<div class="nav-section" id="nav-section-2">
+					<p>Select <br>Dashboard</p>
 
-				<div class="menu">
-					<div class="menu-caption">
-						<p>Choose dashboard</p>
+					<div class="menu">
+						<div class="menu-caption">
+							<p>Choose dashboard</p>
+							<span class="arrow"> </span>
+						</div>
+
+						<ul class="action-list">
+							<li><a href="#">link</a></li>
+							<li><a href="#">link</a></li>
+							<li><a href="#">link</a></li>
+							<li><a href="#">link</a></li>
+							<li><a href="#">link</a></li>
+						</ul>
 					</div>
-
-					<ul class="action-list">
-						<li><a href="#">link</a></li>
-						<li><a href="#">link</a></li>
-						<li><a href="#">link</a></li>
-						<li><a href="#">link</a></li>
-						<li><a href="#">link</a></li>
-					</ul>
 				</div>
-			</div>
 
-			<div class="nav-section">
-				<p>Help &amp; Tutorials</p>
+				<div class="nav-section" id="nav-section-3">
+					<p>Help &amp;<br>Tutorials</p>
 
-				<div class="menu">
-					<div class="menu-caption">
-						<p>Choose guide</p>
+					<div class="menu">
+						<div class="menu-caption">
+							<p>Choose guide</p>
+							<span class="arrow"> </span>
+						</div>
+
+						<ul class="action-list">
+							<li><a href="#">link</a></li>
+							<li><a href="#">link</a></li>
+							<li><a href="#">link</a></li>
+							<li><a href="#">link</a></li>
+							<li><a href="#">link</a></li>
+						</ul>
 					</div>
-
-					<ul class="action-list">
-						<li><a href="#">link</a></li>
-						<li><a href="#">link</a></li>
-						<li><a href="#">link</a></li>
-						<li><a href="#">link</a></li>
-						<li><a href="#">link</a></li>
-					</ul>
 				</div>
-			</div>
-		</nav>
+			</nav>
 
-		<section class="tabs">
-			<ul>
-				<li><a href="#quick-reports">Quick Reports</a></li>
-				<li><a href="#my-folders">My Folders</a></li>
-				<li><a href="#my-team-folders">My Team Folders</a></li>
-				<li><a href="#public-folders">Public Folders</a></li>
-			</ul>
+			<section class="tabs">
+				<ul class="cf">
+					<li class="tab"><a href="#quick-reports">Quick Reports</a></li>
+					<li class="tab"><a href="#my-folders">My Folders</a></li>
+					<li class="tab"><a href="#my-team-folders">My Team Folders</a></li>
+					<li class="tab"><a href="#public-folders">Public Folders</a></li>
+				</ul>
 
-			<div id="quick-reports">
-			</div>
-
-			<div id="my-folders">
-			</div>
-
-			<div id="my-team-folders">
-			</div>
-
-			<div id="public-folders">
-			</div>
+				<div id="quick-reports" class="tab-container">
+					<div class="tab-toolbar">
+						<select name="" id="">
+							<option value="">1</option>
+							<option value="">2</option>
+							<option value="">3</option>
+						</select>
+						<a href="" class="settings"><img src="img/icons/settings.png" alt=""></a>
+						<a href="" class="expand"><img src="img/icons/expand.png" alt=""></a>
+						<form class="settings-form">
+                            <fieldset>
+                                <legend>Report 01</legend>
+                                <div class="form-group">
+                                    <label for="name1">Name</label>
+                                    <input type="text" name="name1" id="name1" placeholder="Site name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="url1">URL</label>
+                                    <input type="url" name="url1" id="url1" placeholder="Site URL">
+                                </div>
+                            </fieldset>
+                            <fieldset>
+                                <legend>Report 02</legend>
+                                <div class="form-group">
+                                    <label for="name2">Name</label>
+                                    <input type="text" name="name2" id="name2" placeholder="Site Name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="url2">URL</label>
+                                    <input type="url" name="url2" id="url2" placeholder="Site URL">
+                                </div>
+                            </fieldset>
+                            <fieldset>
+                                <legend>Report 03</legend>
+                                <div class="form-group">
+                                    <label for="name3">Name</label>
+                                    <input type="text" name="name3" id="name3" placeholder="Site Name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="url3">URL</label>
+                                    <input type="url" name="url3" id="url3" placeholder="Site URL">
+                                </div>
+                            </fieldset>
+                            <div class="form-actions">
+                                <input type="submit" name="submit" value="save" role="button">
+                                <a class="cancel-btn" tabindex="0">Cancel</a>
+                            </div>
+                        </form>
+					</div>
+					<div class="iframe-container">
+						<iframe src="http://www.apple.com">
+						</iframe>
+					</div>
+				</div>
+				<div id="my-folders" class="tab-container">
+					<div class="tab-toolbar">
+						<a href="" class="expand"><img src="img/icons/expand.png" alt=""></a>
+					</div>
+					<div class="iframe-container">
+						<iframe src="http://www.apple.com">
+						</iframe>
+					</div>
+				</div>
+				<div id="my-team-folders" class="tab-container">
+					<div class="tab-toolbar">
+						<select name="" id="">
+							<option value="">1</option>
+							<option value="">2</option>
+							<option value="">3</option>
+						</select>
+						<a href="" class="settings"><img src="img/icons/settings.png" alt=""></a>
+						<a href="" class="expand"><img src="img/icons/expand.png" alt=""></a>
+						<form class="settings-form">
+                            <fieldset>
+                                <legend>Report 01</legend>
+                                <div class="form-group">
+                                    <label for="name1">Name</label>
+                                    <input type="text" name="name1" id="name1" placeholder="Site name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="url1">URL</label>
+                                    <input type="url" name="url1" id="url1" placeholder="Site URL">
+                                </div>
+                            </fieldset>
+                            <fieldset>
+                                <legend>Report 02</legend>
+                                <div class="form-group">
+                                    <label for="name2">Name</label>
+                                    <input type="text" name="name2" id="name2" placeholder="Site Name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="url2">URL</label>
+                                    <input type="url" name="url2" id="url2" placeholder="Site URL">
+                                </div>
+                            </fieldset>
+                            <fieldset>
+                                <legend>Report 03</legend>
+                                <div class="form-group">
+                                    <label for="name3">Name</label>
+                                    <input type="text" name="name3" id="name3" placeholder="Site Name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="url3">URL</label>
+                                    <input type="url" name="url3" id="url3" placeholder="Site URL">
+                                </div>
+                            </fieldset>
+                            <div class="form-actions">
+                                <input type="submit" name="submit" value="save" role="button">
+                                <a class="cancel-btn" tabindex="0">Cancel</a>
+                            </div>
+                        </form>
+					</div>
+					<div class="iframe-container">
+						<iframe src="http://www.apple.com">
+						</iframe>
+					</div>
+				</div>
+				<div id="public-folders" class="tab-container">
+					<div class="tab-toolbar">
+						<a href="" class="expand"><img src="img/icons/expand.png" alt=""></a>
+					</div>
+					<div class="iframe-container">
+						<iframe src="http://www.apple.com">
+						</iframe>
+					</div>
+				</div>
+			</section>
 		</section>
-	</section>
-
+	</div>
 	<script src="js/main.js"></script>
 </body>
 </html>
