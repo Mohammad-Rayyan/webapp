@@ -84,10 +84,10 @@
 
 			<section class="tabs">
 				<ul class="cf">
-					<li class="tab"><a href="#quick-reports">Quick Reports</a></li>
-					<li class="tab"><a href="#my-folders">My Folders</a></li>
-					<li class="tab"><a href="#my-team-folders">My Team Folders</a></li>
-					<li class="tab"><a href="#public-folders">Public Folders</a></li>
+					<li class="tab"><a class="activeTab" id="quick-reports-tab" href="#quick-reports">Quick Reports</a></li>
+					<li class="tab"><a href="#my-folders" id="my-folders-tab">My Folders</a></li>
+					<li class="tab"><a href="#my-team-folders" id="my-team-folders-tab">My Team Folders</a></li>
+					<li class="tab"><a href="#public-folders" id="public-folders-tab">Public Folders</a></li>
 				</ul>
 
 				<div id="quick-reports" class="tab-container">
@@ -97,39 +97,39 @@
 							<option value="">2</option>
 							<option value="">3</option>
 						</select>
-						<a href="" class="settings"><img src="img/icons/settings.png" alt=""></a>
-						<a href="" class="expand"><img src="img/icons/expand.png" alt=""></a>
+						<button id="reports-settings" class="settings"><img src="img/icons/settings.png" alt=""></button>
+						<button class="expand"><img src="img/icons/expand.png" alt=""></button>
 						<form class="settings-form">
                             <fieldset>
                                 <legend>Report 01</legend>
                                 <div class="form-group">
-                                    <label for="name1">Name</label>
+                                    <label for="name1">Name: </label>
                                     <input type="text" name="name1" id="name1" placeholder="Site name">
                                 </div>
                                 <div class="form-group">
-                                    <label for="url1">URL</label>
+                                    <label for="url1">URL: </label>
                                     <input type="url" name="url1" id="url1" placeholder="Site URL">
                                 </div>
                             </fieldset>
                             <fieldset>
                                 <legend>Report 02</legend>
                                 <div class="form-group">
-                                    <label for="name2">Name</label>
+                                    <label for="name2">Name: </label>
                                     <input type="text" name="name2" id="name2" placeholder="Site Name">
                                 </div>
                                 <div class="form-group">
-                                    <label for="url2">URL</label>
+                                    <label for="url2">URL: </label>
                                     <input type="url" name="url2" id="url2" placeholder="Site URL">
                                 </div>
                             </fieldset>
                             <fieldset>
                                 <legend>Report 03</legend>
                                 <div class="form-group">
-                                    <label for="name3">Name</label>
+                                    <label for="name3">Name: </label>
                                     <input type="text" name="name3" id="name3" placeholder="Site Name">
                                 </div>
                                 <div class="form-group">
-                                    <label for="url3">URL</label>
+                                    <label for="url3">URL: </label>
                                     <input type="url" name="url3" id="url3" placeholder="Site URL">
                                 </div>
                             </fieldset>
@@ -160,11 +160,11 @@
 							<option value="">2</option>
 							<option value="">3</option>
 						</select>
-						<a href="" class="settings"><img src="img/icons/settings.png" alt=""></a>
-						<a href="" class="expand"><img src="img/icons/expand.png" alt=""></a>
+						<button id="folders-settings" class="settings"><img src="img/icons/settings.png" alt=""></button>
+						<button class="expand"><img src="img/icons/expand.png" alt=""></button>
 						<form class="settings-form">
                             <fieldset>
-                                <legend>Report 01</legend>
+                                <legend>Folder 01</legend>
                                 <div class="form-group">
                                     <label for="name1">Name</label>
                                     <input type="text" name="name1" id="name1" placeholder="Site name">
@@ -175,7 +175,7 @@
                                 </div>
                             </fieldset>
                             <fieldset>
-                                <legend>Report 02</legend>
+                                <legend>Folder 02</legend>
                                 <div class="form-group">
                                     <label for="name2">Name</label>
                                     <input type="text" name="name2" id="name2" placeholder="Site Name">
@@ -186,7 +186,7 @@
                                 </div>
                             </fieldset>
                             <fieldset>
-                                <legend>Report 03</legend>
+                                <legend>Folder 03</legend>
                                 <div class="form-group">
                                     <label for="name3">Name</label>
                                     <input type="text" name="name3" id="name3" placeholder="Site Name">
