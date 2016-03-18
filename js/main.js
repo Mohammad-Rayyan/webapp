@@ -31,6 +31,9 @@ button2.addEventListener("click",function(){togfun(button2)}, false);
 window.addEventListener("hashchange", funcRef, false);
 function funcRef(){
 	var currentTab = document.getElementById(location.hash.slice(1));
+	if(location.hash.slice(1) === ""){
+		return;
+	}
 	var pastTabTitle = document.getElementsByClassName("activeTab");
 	var alltabs = document.getElementsByClassName("tab-container");
 	var currentTabTitle=document.getElementById(location.hash.slice(1)+"-tab")
@@ -45,3 +48,26 @@ function funcRef(){
 }
 /////////////////////////////end tabs toggle
 
+
+
+
+window.addEventListener('load', init, false);
+
+var options = {
+    done: function (json) {
+        console.log(json);
+        var notifications = document.querySelector(".notifications");
+        if (json.notification) {
+            var content = document.createTextNode(json.notification);
+            notifications.appendChild(content);
+        };
+
+    },
+    fail: function (err) {
+        console.log(err)
+    }
+}
+
+function init() {
+    UTILS.ajax('data/config.json', options);
+}
