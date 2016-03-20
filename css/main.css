@@ -214,6 +214,9 @@ iframe{
     border: none;
     cursor: pointer;
 }
+.settings{
+    background-color: white;
+}
 button:focus {
     outline: 0;
 }
@@ -239,7 +242,7 @@ button:focus {
     box-shadow: 0px 5px 5px rgba(0,0,0,0.6);
     margin-top: 5px;
     padding: 1rem;
-    display: none;
+    display: block;
     margin-top: 2.5rem;
 }
 fieldset {
@@ -267,13 +270,14 @@ legend {
     margin-right: 1rem;
     font-size: larger;
     text-decoration: underline;
+    cursor: pointer;
 }
 .form-actions {
     display: block;
     margin-bottom: 2rem;
     padding-right: 0.8rem;
 }
-.form-actions input[type="submit"] {
+.form-actions button[type="button"] {
     background-color: black;
     border: none;
     color: white;
@@ -286,6 +290,16 @@ legend {
 }
 #quick-reports{
     display:block;
+    min-height: 20rem;
+}
+#my-team-folders{
+    min-height: 20rem;
+}
+input[type="text"]:invalid,input[type="url"]:invalid{
+    border: solid 1px red;
+}
+button[class="expand"] {
+    display: none;
 }
 /*********************** END tabs ****************************/
 

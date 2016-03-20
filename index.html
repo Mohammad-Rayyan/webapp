@@ -92,11 +92,7 @@
 
 				<div id="quick-reports" class="tab-container">
 					<div class="tab-toolbar">
-						<select id="reportsSelect">
-							<option value="">1</option>
-							<option value="">2</option>
-							<option value="">3</option>
-						</select>
+						<select id="reportsSelect" class="urlList"></select>
 						<button id="reports-settings" class="settings"><img src="img/icons/settings.png" alt=""></button>
 						<button class="expand"><img src="img/icons/expand.png" alt=""></button>
 						<form class="settings-form">
@@ -104,45 +100,42 @@
                                 <legend>Report 01</legend>
                                 <div class="form-group">
                                     <label for="name1">Name: </label>
-                                    <input type="text" name="name1" id="name1" placeholder="Site name">
+                                    <input type="text" name="name" placeholder="Site name">
                                 </div>
                                 <div class="form-group">
                                     <label for="url1">URL: </label>
-                                    <input type="url" name="url1" id="url1" placeholder="Site URL">
+                                    <input type="url" name="url" placeholder="Site URL">
                                 </div>
                             </fieldset>
                             <fieldset>
                                 <legend>Report 02</legend>
                                 <div class="form-group">
                                     <label for="name2">Name: </label>
-                                    <input type="text" name="name2" id="name2" placeholder="Site Name">
+                                    <input type="text" name="name" placeholder="Site Name">
                                 </div>
                                 <div class="form-group">
                                     <label for="url2">URL: </label>
-                                    <input type="url" name="url2" id="url2" placeholder="Site URL">
+                                    <input type="url" name="url" placeholder="Site URL">
                                 </div>
                             </fieldset>
                             <fieldset>
                                 <legend>Report 03</legend>
                                 <div class="form-group">
                                     <label for="name3">Name: </label>
-                                    <input type="text" name="name3" id="name3" placeholder="Site Name">
+                                    <input type="text" name="name"  placeholder="Site Name">
                                 </div>
                                 <div class="form-group">
                                     <label for="url3">URL: </label>
-                                    <input type="url" name="url3" id="url3" placeholder="Site URL">
+                                    <input type="url" name="url"  placeholder="Site URL">
                                 </div>
                             </fieldset>
                             <div class="form-actions">
-                                <input type="submit" name="submit" value="save" role="button">
-                                <a class="cancel-btn" tabindex="0">Cancel</a>
+                                <button type="button" id="reports-save">Save</button>
+                                <a class="cancel-btn" id="reports-cancel">Cancel</a>
                             </div>
                         </form>
 					</div>
-					<div class="iframe-container">
-						<iframe src="http://www.apple.com">
-						</iframe>
-					</div>
+					<div class="iframe-container"></div>
 				</div>
 				<div id="my-folders" class="tab-container">
 					<div class="tab-toolbar">
@@ -155,11 +148,7 @@
 				</div>
 				<div id="my-team-folders" class="tab-container">
 					<div class="tab-toolbar">
-						<select id="foldersSelect">
-							<option value="">1</option>
-							<option value="">2</option>
-							<option value="">3</option>
-						</select>
+						<select id="foldersSelect" class="urlList"></select>
 						<button id="folders-settings" class="settings"><img src="img/icons/settings.png" alt=""></button>
 						<button class="expand"><img src="img/icons/expand.png" alt=""></button>
 						<form class="settings-form">
@@ -167,45 +156,42 @@
                                 <legend>Folder 01</legend>
                                 <div class="form-group">
                                     <label for="name1">Name</label>
-                                    <input type="text" name="name1" id="name1" placeholder="Site name">
+                                    <input type="text" name="name" placeholder="Site name">
                                 </div>
                                 <div class="form-group">
                                     <label for="url1">URL</label>
-                                    <input type="url" name="url1" id="url1" placeholder="Site URL">
+                                    <input type="url" name="url" placeholder="Site URL">
                                 </div>
                             </fieldset>
                             <fieldset>
                                 <legend>Folder 02</legend>
                                 <div class="form-group">
                                     <label for="name2">Name</label>
-                                    <input type="text" name="name2" id="name2" placeholder="Site Name">
+                                    <input type="text" name="name" placeholder="Site Name">
                                 </div>
                                 <div class="form-group">
                                     <label for="url2">URL</label>
-                                    <input type="url" name="url2" id="url2" placeholder="Site URL">
+                                    <input type="url" name="url" placeholder="Site URL">
                                 </div>
                             </fieldset>
                             <fieldset>
                                 <legend>Folder 03</legend>
                                 <div class="form-group">
                                     <label for="name3">Name</label>
-                                    <input type="text" name="name3" id="name3" placeholder="Site Name">
+                                    <input type="text" name="name" placeholder="Site Name">
                                 </div>
                                 <div class="form-group">
                                     <label for="url3">URL</label>
-                                    <input type="url" name="url3" id="url3" placeholder="Site URL">
+                                    <input type="url" name="url" placeholder="Site URL">
                                 </div>
                             </fieldset>
                             <div class="form-actions">
-                                <input type="submit" name="submit" value="save" role="button">
-                                <a class="cancel-btn" tabindex="0">Cancel</a>
+                                <button type="button" id="folders-save">Save</button>
+                                <a class="cancel-btn" id="folders-cancel">Cancel</a>
                             </div>
                         </form>
 					</div>
-					<div class="iframe-container">
-						<iframe src="http://www.apple.com">
-						</iframe>
-					</div>
+					<div class="iframe-container"></div>
 				</div>
 				<div id="public-folders" class="tab-container">
 					<div class="tab-toolbar">
