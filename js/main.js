@@ -1,8 +1,8 @@
 
 ////////////////////////////settings toggle
 function togfun(button) {
-  	var img = button.children[0];
-  	var form = button.parentElement.children[3];
+  	var img = UTILS.qs("#"+button.id+ " img");
+  	var form = UTILS.qs("#"+button.id+ " ~ form");
   	if (button.style.backgroundColor==="" || button.style.backgroundColor==="white"){
   		button.style.backgroundColor="lightgray";
   		form.style.display="none";

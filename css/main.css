@@ -291,6 +291,9 @@ input[type="text"]:invalid,input[type="url"]:invalid{
 button[class="expand"] {
     display: none;
 }
+.search-box label,label[for=reportsSelect],label[for=foldersSelect]{
+    display: none;
+}
 /*********************** END tabs ****************************/
 
 .cf:after,
