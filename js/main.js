@@ -40,17 +40,14 @@ function funcRef(){
 
 }
 
-/////////////////////////////end tabs toggle
+///////////////////////////// load page
 window.addEventListener('load', init, false);
 
 var options = {
     done: function (json) {
         console.log(json);
-        var notifications = document.querySelector(".notifications");
-        if (json.notification) {
-            var content = document.createTextNode(json.notification);
-            notifications.appendChild(content);
-        };
+        storageHandler.write("appdata",json);
+        init();
 
     },
     fail: function (err) {
@@ -59,9 +56,58 @@ var options = {
 }
 
 function init() {
-    UTILS.ajax('data/config.json', options);
+	var data = storageHandler.read("appdata");
+	if(data == null){
+		UTILS.ajax('data/config.json', options);
+		return;
+	}else{
+		data = storageHandler.read("appdata");
+	}
+	/////////////// nontification set
+	var notifications = document.querySelector(".notifications");
+    if (data.notification) {
+        var content = document.createTextNode(data.notification);
+        notifications.appendChild(content);
+    };
+    ///////////////////// quickActions set
+    setActions(data.quickActions);
+    ///////////////////// tabs set
+    UTILS.qs("#my-folders iframe").src = data.tabsList[1].options.url;
+    UTILS.qs("#public-folders iframe").src = data.tabsList[3].options.url;
+    setSettingTaps(data.tabsList);
 }
 
+function setActions (quickActions) {
+	var navSections = UTILS.qsa(".nav-section");
+	var menuCaptions = UTILS.qsa(".menu-caption");
+	var actionLists = UTILS.qsa(".action-list");
+	for (var i = 0; i < quickActions.length; i++) {
+
+		navSections[i].children[0].innerHTML =quickActions[i].label;
+		navSections[i].style.background = "black url(./img/icons/" + quickActions[i].icon + ".png) no-repeat center 50px";
+		menuCaptions[i].children[0].innerHTML =quickActions[i].actionsLabel;
+		actions = quickActions[i].actions;
+		for (var j = 0; j < actions.length; j++) {
+			actionLists[i].innerHTML += "<li><a href=\"" + actions[j].url + "\">" + actions[j].label + "</a></li>"
+		}
+	}
+}
+function setSettingTaps(tabs) {
+	var inputs =document.querySelectorAll('.settings-form input[type="text"],input[type="url"]');
+	if(tabs[0].length > 1){
+		for (var i = 0; i < 6; i=i + 2) {
+			inputs[i].value = tabs[0][i/2][0];
+			inputs[i+1].value = tabs[0][i/2][1];
+		}
+	}
+	if(tabs[2].length > 1){
+		for (var j = 6; j < inputs.length; j=j + 2) {
+			inputs[j].value = tabs[2][(j-6)/2][0];
+			inputs[j+1].value = tabs[2][(j-6)/2][1];
+		}
+	}
+	
+}
 //////////////////////// form keyboard 
 var inputs = document.querySelectorAll('.settings-form input[type="text"],input[type="url"]');
 for (var i = 0; i < 6; i++) {
@@ -101,19 +147,34 @@ function formValid(form) {
 	var tabId = "#" + form.parentElement.parentElement.id; 
 	var sitesNames = UTILS.qsa(tabId + " input[name='name']");
     var sitesUrls = UTILS.qsa(tabId + " input[name='url']");
+    var tabIndex = 0;
+    if(tabId == "#my-team-folders") tabIndex = 2;
 	for (var i = 0; i < 3; i++) {
 		sitesUrls[i].required=false;
 		sitesNames[i].required=false;
-		    if(sitesNames[i].value === "" && sitesUrls[i].value != ""){
-		    	sitesNames[i].required=true;
-		    	valid =false;
-
-		    }else if(sitesNames[i].value != "" && sitesUrls[i].value === ""){
-		    	sitesUrls[i].required=true;
-		    	valid =false;
-		    }
-		    if(sitesNames[i].value !="" && sitesUrls[i].required=== false){
-		   		iframeUrl = sitesUrls[i].value;
+		var urlV = UTILS.urlValid(sitesUrls[i].value);
+		    if(urlV){
+		    	var prefix = 'http://';
+				if (sitesUrls[i].value.substr(0, prefix.length) !== prefix)
+				{
+				    sitesUrls[i].value = prefix + sitesUrls[i].value;
+				}
+		    	if(sitesNames[i].value === ""){
+		    		sitesNames[i].required=true;
+		    		valid =false;
+		    	}else{
+		    		iframeUrl = sitesUrls[i].value;
+		    	}
+		    }else{
+		    	if(sitesNames[i].value != ""){
+		    		sitesUrls[i].required=true;
+		    		valid =false;
+		    	}else if(sitesNames[i].value ==="" && sitesUrls[i].value === ""){
+		    	}else if(sitesNames[i].value ==="" && sitesUrls[i].value != ""){
+		    		sitesNames[i].required=true;
+		    		sitesUrls[i].required=true;
+		    		valid =false;
+		    	}
 		    }
 	}
 	var urlList=UTILS.qs(tabId + " .urlList");
@@ -148,8 +209,25 @@ function formValid(form) {
 	}else{
 		urlList.style.display="block";
 	}
+	if(valid == true){
+		var storageData = storageHandler.read("appdata");
+		var data = [];
+		var key = tabId.slice(1);
+		for (var i = 0; i < 3; i++) {
+				data.push([sitesNames[i].value,sitesUrls[i].value]);
+			}
+		if(iframeUrl != ""){
+			storageData.tabsList[tabIndex]=data;
+		}else{
+			storageData.tabsList[tabIndex]=[];
+		}
+		storageHandler.write("appdata",storageData);
+	}
 	return;
 }
+
+
+
 //////////////////////// urlList iframe change
 var urlList = document.querySelectorAll(".urlList");
 urlList[0].addEventListener("change",function(){iframeChange(urlList[0]);},false);
@@ -158,6 +236,9 @@ function iframeChange(element) {
 	var tabId = "#" + element.parentElement.parentElement.id; 
 	UTILS.qs(tabId +" iframe").src = UTILS.qs(tabId +" .urlList").value;
 }
+
+
+
 ///////////////////////// expand button
 var expand = document.querySelectorAll(".expand");
 expand[0].addEventListener("click",function(){OpenInNewTab(expand[0].parentElement.parentElement);},false);
@@ -171,4 +252,31 @@ function OpenInNewTab(element) {
 		win.focus();
 	}
 	
+}
+
+    //----------------------------------------------------------------------
+    //----------------------------------------------------------------------
+
+    var storageHandler = (function(){
+
+        function read(key){
+            return JSON.parse(localStorage.getItem(key));
+        }
+
+        function write(key, data){
+            return localStorage.setItem(key, JSON.stringify(data));
+        }
+        function remove(key) {
+            return localStorage.removeItem(key);
+        }
+
+        return{
+            read: read,
+            write: write,
+            remove: remove
+        };
+    })();
+function storgeLoad() {
+	
+
 }

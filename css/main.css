@@ -3,6 +3,8 @@
 }
 body{
 	margin: 0px;
+    background: url(../img/body-background.jpg) no-repeat center center fixed;
+    background-size: cover;
 }
 /*********************** header ****************************/
 header {
@@ -36,10 +38,8 @@ input[type="search"] {
 /*********************** END header ****************************/
 /*********************** nav section ****************************/
 .container {
-    background: url(../img/body-background.jpg) no-repeat center center fixed;
     margin: 0 auto;
     height: 100%;
-    background-size: cover;
 }
 .page-body {
     background-color: rgba(100,100,100,0.5);
@@ -65,19 +65,9 @@ input[type="search"] {
     z-index: 100;
     font-size: 1em;
 }
-#nav-section-1 {
-    background: url(../img/icons/action-report-new.png) no-repeat center 50px;
-    background-color: black;
-}
 #nav-section-2{
-	background: url(../img/icons/action-report-top.png) no-repeat center 50px;
-    background-color: black;
     margin: 0 2% 0 2%;
     margin-top: 20px;
-}
-#nav-section-3 {
-    background: url(../img/icons/actions-help.png) no-repeat center 50px;
-    background-color: black;
 }
 p{
     color: white;

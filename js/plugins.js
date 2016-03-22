@@ -139,6 +139,19 @@ var UTILS = (function () {
 		},
 
 		/**
+		 * Check if url valid
+		 *
+		 * @param  {url}       url string
+		 * @return {Boolean}   true if it's an Object
+		 */
+		urlValid: function (url) {
+			var re = /^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/;
+			if (!re.test(url)) { 
+			    return false;
+			}
+			return true;
+		},
+		/**
 		 * AJAX helper function (similar to jQuery, but far from it!)
 		 *
 		 * @param {string} url     URL for the ajax request
