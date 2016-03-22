@@ -1,44 +1,26 @@
+    //----------------------------------------------------------------------
+    //----------------------------------------------------------------------
 
-////////////////////////////settings toggle
-function togfun(button) {
-  	var img = UTILS.qs("#"+button.id+ " img");
-  	var form = UTILS.qs("#"+button.id+ " ~ form");
-  	if (button.style.backgroundColor==="" || button.style.backgroundColor==="white"){
-  		button.style.backgroundColor="lightgray";
-  		form.style.display="none";
-  	}else{
-  		button.style.backgroundColor="white";
-  		form.style.display="block";
-  	}
-  	UTILS.classToggle(img,'rotate-img');
-}
+    var storageHandler = (function(){
 
-// add event listener to settings buttons
-var button1 = document.getElementById("folders-settings");
-button1.addEventListener("click", function(){togfun(button1)}, false);
-var button2 = document.getElementById("reports-settings");
-button2.addEventListener("click",function(){togfun(button2)}, false);
+        function read(key){
+            return JSON.parse(localStorage.getItem(key));
+        }
 
-/////////////////////////// tabs toggle
+        function write(key, data){
+            return localStorage.setItem(key, JSON.stringify(data));
+        }
+        function remove(key) {
+            return localStorage.removeItem(key);
+        }
 
-window.addEventListener("hashchange", funcRef, false);
-function funcRef(){
-	var currentTab = document.getElementById(location.hash.slice(1));
-	if(location.hash.slice(1) === ""){
-		return;
-	}
-	var pastTabTitle = document.getElementsByClassName("activeTab");
-	var alltabs = document.getElementsByClassName("tab-container");
-	var currentTabTitle=document.getElementById(location.hash.slice(1)+"-tab")
-		  for (var i = 0; i < alltabs.length; i++) {
-		    alltabs[i].style.display = "none";
-		  }
+        return{
+            read: read,
+            write: write,
+            remove: remove
+        };
+    })();
 
-		currentTab.style.display = "block";
-		UTILS.classToggle(pastTabTitle[0],'activeTab');
-		UTILS.classToggle(currentTabTitle,'activeTab');
-
-}
 
 ///////////////////////////// load page
 window.addEventListener('load', init, false);
@@ -108,6 +90,49 @@ function setSettingTaps(tabs) {
 	}
 	
 }
+
+////////////////////////////settings toggle
+function togfun(button) {
+  	var img = UTILS.qs("#"+button.id+ " img");
+  	var form = UTILS.qs("#"+button.id+ " ~ form");
+  	if (button.style.backgroundColor==="" || button.style.backgroundColor==="white"){
+  		button.style.backgroundColor="lightgray";
+  		form.style.display="none";
+  	}else{
+  		button.style.backgroundColor="white";
+  		form.style.display="block";
+  	}
+  	UTILS.classToggle(img,'rotate-img');
+}
+
+// add event listener to settings buttons
+var button1 = document.getElementById("folders-settings");
+button1.addEventListener("click", function(){togfun(button1)}, false);
+var button2 = document.getElementById("reports-settings");
+button2.addEventListener("click",function(){togfun(button2)}, false);
+
+/////////////////////////// tabs toggle
+
+window.addEventListener("hashchange", funcRef, false);
+function funcRef(){
+	var currentTab = document.getElementById(location.hash.slice(1));
+	if(location.hash.slice(1) === ""){
+		return;
+	}
+	var pastTabTitle = document.getElementsByClassName("activeTab");
+	var alltabs = document.getElementsByClassName("tab-container");
+	var currentTabTitle=document.getElementById(location.hash.slice(1)+"-tab")
+		  for (var i = 0; i < alltabs.length; i++) {
+		    alltabs[i].style.display = "none";
+		  }
+
+		currentTab.style.display = "block";
+		UTILS.classToggle(pastTabTitle[0],'activeTab');
+		UTILS.classToggle(currentTabTitle,'activeTab');
+
+}
+
+
 //////////////////////// form keyboard 
 var inputs = document.querySelectorAll('.settings-form input[type="text"],input[type="url"]');
 for (var i = 0; i < 6; i++) {
@@ -133,8 +158,8 @@ function keyPress(e,saveId,cancelId){
 
 /////////////////////////// form cancel
 var cancelForm = document.getElementsByClassName("cancel-btn");
-cancelForm[0].addEventListener("click",function(){togfun(cancelForm[0].parentElement.parentElement.parentElement.children[1]);},false);
-cancelForm[1].addEventListener("click",function(){togfun(cancelForm[1].parentElement.parentElement.parentElement.children[1]);},false);
+cancelForm[0].addEventListener("click",function(){togfun(UTILS.qs('#reports-settings'));},false);
+cancelForm[1].addEventListener("click",function(){togfun(UTILS.qs('#folders-settings'));},false);
 
 /////////////////////////// form save
 var saveForm = document.querySelectorAll('button[type="button"]');
@@ -254,29 +279,3 @@ function OpenInNewTab(element) {
 	
 }
 
-    //----------------------------------------------------------------------
-    //----------------------------------------------------------------------
-
-    var storageHandler = (function(){
-
-        function read(key){
-            return JSON.parse(localStorage.getItem(key));
-        }
-
-        function write(key, data){
-            return localStorage.setItem(key, JSON.stringify(data));
-        }
-        function remove(key) {
-            return localStorage.removeItem(key);
-        }
-
-        return{
-            read: read,
-            write: write,
-            remove: remove
-        };
-    })();
-function storgeLoad() {
-	
-
-}
